@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreacthub=self.webpackChunkreacthub||[]).push([[268],{969:(e,t,c)=>{c.r(t),c.d(t,{default:()=>r});c(395);const r=e=>{let{children:t}=e;localStorage.getItem("token");return t}}}]);
+//# sourceMappingURL=test29.8f9df8fb.chunk.js.map

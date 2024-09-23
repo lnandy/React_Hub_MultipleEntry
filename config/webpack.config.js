@@ -330,6 +330,11 @@ module.exports = function (webpackEnv) {
       ],
       splitChunks: {
        // chunks: 'all',
+       name: (module, chunks, cacheGroupKey) => {
+        const moduleFileName = module.identifier().split('/').reduceRight(item => item);
+        const allChunksNames = chunks.map((item) => item.name).join('~');
+        return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
+      },
        cacheGroups: {
         // 通过正则匹配，将 react react-dom echarts-for-react 等公共模块拆分为 vendor
         // 这里仅作为示例，具体需要拆分哪些模块需要根据项目需要进行配置
@@ -629,34 +634,6 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
-      //Generates an `index.html` file with the <script> injected.
-      // new HtmlWebpackPlugin(
-      //   Object.assign(
-      //     {},
-      //     {
-      //       inject: true,
-      //       template: paths.appHtml,
-      //       filename: 'index.html',
-      //       chunks: ['index']
-      //     },
-      //     isEnvProduction
-      //       ? {
-      //           minify: {
-      //             removeComments: true,
-      //             collapseWhitespace: true,
-      //             removeRedundantAttributes: true,
-      //             useShortDoctype: true,
-      //             removeEmptyAttributes: true,
-      //             removeStyleLinkTypeAttributes: true,
-      //             keepClosingSlash: true,
-      //             minifyJS: true,
-      //             minifyCSS: true,
-      //             minifyURLs: true,
-      //           },
-      //         }
-      //       : undefined
-      //   )
-      // ),
       ...htmlPlugins,
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.

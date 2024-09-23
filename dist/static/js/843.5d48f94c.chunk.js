@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreacthub=self.webpackChunkreacthub||[]).push([[843],{843:(e,s,h)=>{h.r(s),h.d(s,{default:()=>c});h(395);var a=h(483);const c=()=>(0,a.jsx)("div",{children:(0,a.jsx)("h1",{children:"Test 2 dashboardds"})})}}]);
-//# sourceMappingURL=843.5d48f94c.chunk.js.map

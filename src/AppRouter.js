@@ -35,7 +35,7 @@ const routes = requireComponent.map((fileName) => {
 		//element: lazy(() => import(`@/${componentName}index`)),
 		//import(`./pages/${path}`));
 		//import(`@/${componentName}`)); 不知道为啥会找到index.html,可能时lazy的配置问题
-		element: React.lazy(() => import(`/* webpackChunkName: "${componentName}" */ ./${componentName}index`))
+		element: React.lazy(() => import(/* webpackChunkName: "test2" */`./${componentName}index`))
 	};
 });
 //console.log(routes)
