@@ -69,6 +69,48 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+### 配置多入口
+
+/*自定义part*/ 
+  const glob = require('glob');
+
+  // 使用 glob 匹配所有页面的入口文件
+  const entries = glob.sync('./src/*/index.js').reduce((acc, file) => {
+    const entry = path.basename(path.dirname(file));
+    acc[entry] = './'+file;
+    return acc;
+  }, {});
+  // 动态生成 HtmlWebpackPlugin 实例
+  const htmlPlugins = Object.keys(entries).map(entry => {
+    return new HtmlWebpackPlugin({
+      inject: true,
+      filename: `${entry}.html`,
+      template: `./src/${entry}/index.html`,
+      //template: paths.appHtml,
+      chunks: [entry],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+    });
+  });
+  ....
+
+  entry: entries,
+
+  ...
+
+  plugins: [
+      ...htmlPlugins,
+
 ### 配置多入口后运行报错
 Could not find a required file.
 Name: index.js
