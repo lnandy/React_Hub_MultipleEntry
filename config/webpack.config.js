@@ -237,14 +237,14 @@ module.exports = function (webpackEnv) {
     output: {
       // The build folder.
       //path: paths.appBuild,
-      //path: path.resolve('dist'),
-      path: path.join(__dirname, 'dist'),
+      path: path.resolve('dist'),
+      //path: path.join(__dirname, 'dist'),
       // Add /* filename */ comments to generated require()s in the output.
       pathinfo: isEnvDevelopment,
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
       filename: isEnvProduction
-        ? 'static/js/[name].js_v=[contenthash:8]'
+        ? 'static/js/[name].[contenthash:8].chunk.js'
         : isEnvDevelopment && 'static/js/[name].chunk.js',
       //There are also additional JS chunk files if you use code splitting.
       chunkFilename: isEnvProduction
@@ -333,7 +333,8 @@ module.exports = function (webpackEnv) {
        name: (module, chunks, cacheGroupKey) => {
         const moduleFileName = module.identifier().split('/').reduceRight(item => item);
         const allChunksNames = chunks.map((item) => item.name).join('~');
-        return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
+        //return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
+        return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`
       },
        cacheGroups: {
         // 通过正则匹配，将 react react-dom echarts-for-react 等公共模块拆分为 vendor
