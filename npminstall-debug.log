@@ -3,9 +3,9 @@
   registry: 'https://registry.npmmirror.com',
   pkgs: [
     {
-      name: '',
-      version: 'babel/preset-env',
-      type: 'git',
+      name: 'fork-ts-checker-webpack-plugin',
+      version: 'last',
+      type: 'tag',
       alias: undefined,
       arg: [Result]
     }
@@ -15,7 +15,7 @@
   cacheDir: '/root/.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/root/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","babel/preset-env"],"original":["--fix-bug-versions","--china","--userconfig=/root/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","babel/preset-env"]}',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/root/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","fork-ts-checker-webpack-plugin@last"],"original":["--fix-bug-versions","--china","--userconfig=/root/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","fork-ts-checker-webpack-plugin@last"]}',
     npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v20.17.0 linux x64',
     npm_config_cache: '/root/.npminstall_tarball',
     NODE: '/usr/bin/node',

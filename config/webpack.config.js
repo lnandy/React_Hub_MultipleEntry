@@ -27,7 +27,7 @@ const ForkTsCheckerWebpackPlugin =
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const createEnvironmentHash = require('./webpack/persistentCache/createEnvironmentHash');
-const CompressionPlugin = require('compression-webpack-plugin');
+
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
@@ -186,10 +186,11 @@ module.exports = function (webpackEnv) {
     return loaders;
   };
   /*自定义part*/ 
+  const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
   const glob = require('glob');
 
   // 使用 glob 匹配所有页面的入口文件
-  const entries = glob.sync('./src/*/index.js').reduce((acc, file) => {
+  const entries = glob.sync('./src/*/index.tsx').reduce((acc, file) => {
     const entry = path.basename(path.dirname(file));
     acc[entry] = './'+file;
     return acc;
@@ -636,6 +637,32 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       ...htmlPlugins,
+      new ForkTsCheckerWebpackPlugin({
+        typescript: {
+          enabled: true, // 启用 TypeScript 检查
+          memoryLimit: 500, // 设置内存限制为 4096 MB
+          configFile: './tsconfig.json', // 指定 tsconfig 文件
+          context: './src', // 设置项目根目录
+          build: true, // 启用构建模式
+          mode: 'write-tsbuildinfo', // 设置模式
+          compilerOptions: {
+            // 其他 TypeScript 编译选项
+          },
+          diagnosticOptions: {
+            syntactic: true,
+            semantic: true,
+            declaration: true,
+            global: true
+          },
+          extensions: {
+            //vue: true, // 如果你使用 Vue.js
+            jsx: true // 如果你使用 JSX
+          },
+          profile: true, // 启用性能分析
+          typescriptPath: require.resolve('typescript') // 指定 TypeScript 路径
+        }
+      }),
+    
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
