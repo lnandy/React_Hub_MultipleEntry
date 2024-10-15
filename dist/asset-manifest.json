@@ -1,17 +1,17 @@
 {
   "files": {
-    "dashboard.js": "./static/js/dashboard.43fe2cb4.chunk.js",
-    "dashboard-components-test-index.js": "./static/js/dashboard-components-test-index.6eec257f.chunk.js",
-    "dashboard-components-test2-index.js": "./static/js/dashboard-components-test2-index.d0e599ec.chunk.js",
-    "home-index.js": "./static/js/home-index.a675d5f4.chunk.js",
-    "project-index.js": "./static/js/project-index.cb3a7ce0.chunk.js",
-    "vendor.js": "./static/js/vendor.bd206d90.chunk.js",
+    "dashboard.js": "./static/js/dashboard.edec545e.chunk.js",
+    "dashboard-components-test-index.js": "./static/js/dashboard-components-test-index.48432e98.chunk.js",
+    "dashboard-components-test2-index.js": "./static/js/dashboard-components-test2-index.0059c954.chunk.js",
+    "home-index.js": "./static/js/home-index.70397d6f.chunk.js",
+    "project-index.js": "./static/js/project-index.de3a06ec.chunk.js",
+    "vendor.js": "./static/js/vendor.ab4c11dd.chunk.js",
     "dashboard.html": "./dashboard.html",
-    "dashboard.43fe2cb4.chunk.js.map": "./static/js/dashboard.43fe2cb4.chunk.js.map",
-    "dashboard-components-test-index.6eec257f.chunk.js.map": "./static/js/dashboard-components-test-index.6eec257f.chunk.js.map",
-    "dashboard-components-test2-index.d0e599ec.chunk.js.map": "./static/js/dashboard-components-test2-index.d0e599ec.chunk.js.map",
-    "home-index.a675d5f4.chunk.js.map": "./static/js/home-index.a675d5f4.chunk.js.map",
-    "project-index.cb3a7ce0.chunk.js.map": "./static/js/project-index.cb3a7ce0.chunk.js.map",
-    "vendor.bd206d90.chunk.js.map": "./static/js/vendor.bd206d90.chunk.js.map"
+    "dashboard.edec545e.chunk.js.map": "./static/js/dashboard.edec545e.chunk.js.map",
+    "dashboard-components-test-index.48432e98.chunk.js.map": "./static/js/dashboard-components-test-index.48432e98.chunk.js.map",
+    "dashboard-components-test2-index.0059c954.chunk.js.map": "./static/js/dashboard-components-test2-index.0059c954.chunk.js.map",
+    "home-index.70397d6f.chunk.js.map": "./static/js/home-index.70397d6f.chunk.js.map",
+    "project-index.de3a06ec.chunk.js.map": "./static/js/project-index.de3a06ec.chunk.js.map",
+    "vendor.ab4c11dd.chunk.js.map": "./static/js/vendor.ab4c11dd.chunk.js.map"
   }
 }

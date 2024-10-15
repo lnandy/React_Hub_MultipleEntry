@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet  } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Outlet  } from 'react-router-dom';
 import Menu from '@/common/Menu';
 const AppContainer = () => {
-
-
   return (
     <div>
-      <h1>Main Application</h1>
+      <h1>Main Application test</h1>
       <Menu />
       <Outlet />
     </div>

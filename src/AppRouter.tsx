@@ -4,7 +4,7 @@ import LoginPage from '@/common/Login/index';
 import Appcontainer from '@/common/Appcontainer';
 import ProtectedRoute from '@/common/ProtectedRoute';
 import NotFound from '@/common/404';
-
+import { UserProvider } from '@/api/user/UserContext';
 
 const requireComponent = require.context('./', true, /index\.tsx$/, 'lazy') as {
 	keys: () => string[];
@@ -47,24 +47,24 @@ const routes: RouteType[] = filteredKeys.map(fileName => {
 
 const App = () => {
 	return (
-		<Router>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Routes>
-				<Route path="/login" element={<LoginPage />} />
-					<Route path="/" element={<Appcontainer />} />
-					<Route element={<ProtectedRoute />}>
-					<Route element={<Appcontainer />} >
-						{routes.map(({ path, element: Element }) => (
-							<Route key={path} path={path} element={<Element />} />
-						))}
-					 </Route>
-					</Route>
-					<Route path="*" element={<NotFound />} />
-				</Routes>
-			</Suspense>
-		</Router>
+		<UserProvider>
+			<Router>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Routes>
+						<Route path="/login" element={<LoginPage />} />
+							<Route path="/"  element={<ProtectedRoute />}>
+								<Route element={<Appcontainer />} >
+									{routes.map(({ path, element: Element }) => (
+										<Route key={path} path={path} element={<Element />} />
+									))}
+								</Route>
+							</Route>
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</Suspense>
+			</Router>
+		</UserProvider>
 	)
 };
 
 export default App;
-

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreacthub=self.webpackChunkreacthub||[]).push([[501],{2789:(e,t,r)=>{var s=r(8395),c=r(800),a=r(8521),d=r(5483);const o=()=>(0,d.jsx)(a.C5,{to:"/dashboard/test"});var h=r(1639);c.createRoot(document.getElementById("root")).render((0,d.jsx)(s.StrictMode,{children:(0,d.jsx)(h.Kd,{children:(0,d.jsx)(o,{})})}))}}]);
+//# sourceMappingURL=home-index.70397d6f.chunk.js.map

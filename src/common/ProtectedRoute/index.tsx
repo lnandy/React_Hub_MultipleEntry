@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 const useAuth = () => {
-  const user = { loggedIn: true }; // 替换为实际的认证逻辑
+  const user = { loggedIn: false }; // 替换为实际的认证逻辑
   return user && user.loggedIn;
 };
 

@@ -186,6 +186,7 @@ module.exports = function (webpackEnv) {
     return loaders;
   };
   /*自定义part*/ 
+  const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
   const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
   const glob = require('glob');
 
@@ -342,7 +343,7 @@ module.exports = function (webpackEnv) {
         // 这里仅作为示例，具体需要拆分哪些模块需要根据项目需要进行配置
         // 可以通过 BundleAnalyzerPlugin 帮助确定拆分哪些模块包
         vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|echarts-for-react)[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom|echarts-for-react|antd)[\\/]/,
           name: 'vendor',
           chunks: 'all', // all, async, and initial
         },
@@ -497,6 +498,7 @@ module.exports = function (webpackEnv) {
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
                     require.resolve('react-refresh/babel'),
+                  ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'true' }]
                 ].filter(Boolean),
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -636,6 +638,7 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+      new BundleAnalyzerPlugin(),
       ...htmlPlugins,
       new ForkTsCheckerWebpackPlugin({
         typescript: {
@@ -750,53 +753,53 @@ module.exports = function (webpackEnv) {
           maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         }),
       // TypeScript type checking
-      useTypeScript &&
-        new ForkTsCheckerWebpackPlugin({
-          async: isEnvDevelopment,
-          typescript: {
-            typescriptPath: resolve.sync('typescript', {
-              basedir: paths.appNodeModules,
-            }),
-            configOverwrite: {
-              compilerOptions: {
-                sourceMap: isEnvProduction
-                  ? shouldUseSourceMap
-                  : isEnvDevelopment,
-                skipLibCheck: true,
-                inlineSourceMap: false,
-                declarationMap: false,
-                noEmit: true,
-                incremental: true,
-                tsBuildInfoFile: paths.appTsBuildInfoFile,
-              },
-            },
-            context: paths.appPath,
-            diagnosticOptions: {
-              syntactic: true,
-            },
-            mode: 'write-references',
-            // profile: true,
-          },
-          issue: {
-            // This one is specifically to match during CI tests,
-            // as micromatch doesn't match
-            // '../cra-template-typescript/template/src/App.tsx'
-            // otherwise.
-            include: [
-              { file: '../**/src/**/*.{ts,tsx}' },
-              { file: '**/src/**/*.{ts,tsx}' },
-            ],
-            exclude: [
-              { file: '**/src/**/__tests__/**' },
-              { file: '**/src/**/?(*.){spec|test}.*' },
-              { file: '**/src/setupProxy.*' },
-              { file: '**/src/setupTests.*' },
-            ],
-          },
-          logger: {
-            infrastructure: 'silent',
-          },
-        }),
+      // useTypeScript &&
+      //   new ForkTsCheckerWebpackPlugin({
+      //     async: isEnvDevelopment,
+      //     typescript: {
+      //       typescriptPath: resolve.sync('typescript', {
+      //         basedir: paths.appNodeModules,
+      //       }),
+      //       configOverwrite: {
+      //         compilerOptions: {
+      //           sourceMap: isEnvProduction
+      //             ? shouldUseSourceMap
+      //             : isEnvDevelopment,
+      //           skipLibCheck: true,
+      //           inlineSourceMap: false,
+      //           declarationMap: false,
+      //           noEmit: true,
+      //           incremental: true,
+      //           tsBuildInfoFile: paths.appTsBuildInfoFile,
+      //         },
+      //       },
+      //       context: paths.appPath,
+      //       diagnosticOptions: {
+      //         syntactic: true,
+      //       },
+      //       mode: 'write-references',
+      //       // profile: true,
+      //     },
+      //     issue: {
+      //       // This one is specifically to match during CI tests,
+      //       // as micromatch doesn't match
+      //       // '../cra-template-typescript/template/src/App.tsx'
+      //       // otherwise.
+      //       include: [
+      //         { file: '../**/src/**/*.{ts,tsx}' },
+      //         { file: '**/src/**/*.{ts,tsx}' },
+      //       ],
+      //       exclude: [
+      //         { file: '**/src/**/__tests__/**' },
+      //         { file: '**/src/**/?(*.){spec|test}.*' },
+      //         { file: '**/src/setupProxy.*' },
+      //         { file: '**/src/setupTests.*' },
+      //       ],
+      //     },
+      //     logger: {
+      //       infrastructure: 'silent',
+      //     },
+      //   }),
       !disableESLintPlugin &&
         new ESLintPlugin({
           // Plugin options
