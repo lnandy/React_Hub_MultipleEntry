@@ -2,7 +2,7 @@
   "name": "reacthub",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "./",
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
     "@babel/core": "^7.16.0",

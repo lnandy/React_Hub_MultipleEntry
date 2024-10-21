@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from 'react-router-dom';
-
+import { useUser } from '@/api/user/UserContext';
 const useAuth = () => {
-  const user = { loggedIn: false }; // 替换为实际的认证逻辑
-  return user && user.loggedIn;
+  //const { userInfo } = useUser();
+  const userInfo = { username: true }; 
+  return userInfo && userInfo.username;
 };
 
 const ProtectedRoute = () => {

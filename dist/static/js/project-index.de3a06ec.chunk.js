@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreacthub=self.webpackChunkreacthub||[]).push([[37],{1282:(e,t,r)=>{var c=r(8395),s=r(800),o=r(4386),u=r(5483);s.createRoot(document.getElementById("root")).render((0,u.jsxs)(c.StrictMode,{children:["project123",(0,u.jsx)(o.A,{})]}))}}]);
-//# sourceMappingURL=project-index.de3a06ec.chunk.js.map

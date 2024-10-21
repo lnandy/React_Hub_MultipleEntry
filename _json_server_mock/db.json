@@ -1,4 +1,8 @@
 {
+    "routes":[
+      { "id": 1, "path":"test","element": "dashboard/components/test/"},
+      { "id": 1, "path":"test2","element": "dashboard/components/test2/"}
+    ],
     "users": [
       { "id": 1, "username": "Andy","password":"MTIzNDU2" },
       { "id": 2, "username": "Jane Doe" }

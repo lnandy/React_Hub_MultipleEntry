@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { FormProps } from 'antd';
-import { Button, Checkbox, Form, Input, Flex } from 'antd';
+import { Button, Checkbox, Form, Input, Flex, message } from 'antd';
 import { useUser } from '@/api/user/UserContext';
 import { login } from '@/api/user/Api';
 
@@ -9,26 +10,29 @@ type FieldType = {
   password?: string;
   remember?: string;
 };
-const onFinish: FormProps<FieldType>['onFinish'] = async (formData) => {
-  try {
-    const response = await login(formData);
-    if(response.length === 0){
-      console.log('empyt')
-    }else{
-      setUserInfo(response)
-    }
-    // 处理登录成功后的逻辑，例如保存用户信息或跳转页面
-  } catch (err) {
-    console.error('Login failed:', err);
-  }
-};
+
 
 const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
 
 const App: React.FC = () => {
+  const navigate = useNavigate();
   const { userInfo, setUserInfo } = useUser();
+  const onFinish: FormProps<FieldType>['onFinish'] = async (formData) => {
+    try {
+      const response = await login(formData);
+      if(response.length === 0){
+        message.error('UserName or Password not exist.');
+      }else{
+        setUserInfo(response[0]);
+        navigate('/dashboard');
+      }
+      // 处理登录成功后的逻辑，例如保存用户信息或跳转页面
+    } catch (err) {
+      message.error('Looks like face some error, please try again.');
+    }
+  };  
 
 return (
   <Form

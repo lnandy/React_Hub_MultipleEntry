@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface UserInfo {
-  name: string;
+  username: string;
   email: string;
   // 其他用户信息
 }
