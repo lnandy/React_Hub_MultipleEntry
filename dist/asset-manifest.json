@@ -1,7 +1,7 @@
 {
   "files": {
-    "project.js": "./static/js/project.7b281695.chunk.js",
-    "dashboard.js": "./static/js/dashboard.cf4ad516.chunk.js",
+    "project.js": "./static/js/project.802abd63.chunk.js",
+    "dashboard.js": "./static/js/dashboard.7a08dd3b.chunk.js",
     "common-Loading-index.js": "./static/js/common-Loading-index.fe0bce7b.chunk.js",
     "dashboard-components-test-index.js": "./static/js/dashboard-components-test-index.f783b0be.chunk.js",
     "dashboard-components-test2-index.js": "./static/js/dashboard-components-test2-index.68d48497.chunk.js",
@@ -14,8 +14,8 @@
     "static/media/bg.jpg": "./static/media/bg.8ae7785448b0b5b56a26.jpg",
     "dashboard.html": "./dashboard.html",
     "project.html": "./project.html",
-    "project.7b281695.chunk.js.map": "./static/js/project.7b281695.chunk.js.map",
-    "dashboard.cf4ad516.chunk.js.map": "./static/js/dashboard.cf4ad516.chunk.js.map",
+    "project.802abd63.chunk.js.map": "./static/js/project.802abd63.chunk.js.map",
+    "dashboard.7a08dd3b.chunk.js.map": "./static/js/dashboard.7a08dd3b.chunk.js.map",
     "common-Loading-index.fe0bce7b.chunk.js.map": "./static/js/common-Loading-index.fe0bce7b.chunk.js.map",
     "dashboard-components-test-index.f783b0be.chunk.js.map": "./static/js/dashboard-components-test-index.f783b0be.chunk.js.map",
     "dashboard-components-test2-index.68d48497.chunk.js.map": "./static/js/dashboard-components-test2-index.68d48497.chunk.js.map",

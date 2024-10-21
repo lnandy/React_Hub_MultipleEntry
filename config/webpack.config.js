@@ -258,7 +258,7 @@ module.exports = function (webpackEnv) {
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from dashboardpage.
       //publicPath: paths.publicUrlOrPath,
-      publicPath: '/',
+      publicPath: './',
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info =>
